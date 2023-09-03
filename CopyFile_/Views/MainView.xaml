@@ -1,0 +1,105 @@
+﻿<Window x:Class="CopyFile_.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CopyFile_.Views"
+        mc:Ignorable="d"
+            Title="MainView" Height="350" Width="720">
+    <Border Background="#28282e" Opacity ="0.95" CornerRadius="10" BorderBrush="Black" BorderThickness="3">
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Horizontal">
+
+                <Label Width="55" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White" FontSize="18" FontWeight="Bold">From</Label>
+
+                <TextBox VerticalContentAlignment="Center" FontSize="14" Text="{Binding SenderFilePath}" HorizontalAlignment="Center" Width="500" Height="35" Margin="30,0,0,0">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button Height="35" Width="65" Margin="20,0,20,0" FontSize="18" FontWeight="Bold" Command="{Binding SendCommand}">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources> File...
+                </Button>
+            </StackPanel>
+
+
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+
+                <Label Width="50" Margin="10,0,0,0" VerticalAlignment="Center" Foreground="White" FontSize="18" FontWeight="Bold">To</Label>
+
+                <TextBox VerticalContentAlignment="Center" FontSize="14" Text="{Binding ReceiverFilePath}" HorizontalAlignment="Center" Width="500" Height="35" Margin="30,0,0,0">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <Button Height="35" Width="65" Margin="20,0,20,0" FontSize="18" FontWeight="Bold" Command="{Binding ReceiveCommand}">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources> File...
+                </Button>
+            </StackPanel>
+
+            <ProgressBar Grid.Row="2" Minimum="0" Maximum="100" Width="350" Height="35" Value="{Binding ProgressBarLength}" HorizontalAlignment="Left" Margin="10">
+                <ProgressBar.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="11"/>
+                    </Style>
+                </ProgressBar.Resources>
+            </ProgressBar>
+
+            <Button Grid.Row="2" Height="35" Width="65" Margin="0,0,98,0" HorizontalAlignment="Right" FontSize="15"  Command="{Binding SuspendCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources> Suspend
+            </Button>
+
+            <Button Grid.Row="2" Height="35" Width="65" Margin="0,0,180,0" HorizontalAlignment="Right" FontSize="15"  Command="{Binding ResumeCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources> Resume
+            </Button>
+
+            <Button Grid.Row="2" Height="35" Width="65" Margin="100,0,265,0" HorizontalAlignment="Right" FontSize="18"  Command="{Binding AbortCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources> Abort
+            </Button>
+
+
+            <Button Grid.Row="2" Height="35" Width="65" Margin="10,0,20,0" HorizontalAlignment="Right" FontSize="18" FontWeight="Bold" Command="{Binding CopyCommand}">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="7"/>
+                    </Style>
+                </Button.Resources> Copy
+            </Button>
+
+        </Grid>
+    </Border>
+</Window>
